@@ -41,10 +41,12 @@ def histogram():
         word, count = item
         symbol_count = count // 3
         if idx >= 9:
-            pad_length = 25
+            pad_length = 15
         else:
-            pad_length = 24
-        print(idx + 1, word.title(), (" " * (len(word) - pad_length)), ("▣" * symbol_count))
+            pad_length = 16
+        spaces_length = pad_length - len(word)
+        print(idx + 1, word.title(), (' ' * spaces_length), ("▣" * symbol_count))
+    print("▣ = Word occurs 3 times")
     #print(sorted_hist[:-20:-1])
 
 histogram()
