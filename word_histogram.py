@@ -20,7 +20,8 @@ def histogram():
                     'very', 'do', 'what', 'us', 'has', 'out', 'her', 'should', 'who', 'up', 'when',
                     'some', 'more', 'any', 'she', 'know', 'then', 'see', 'over', 'into', 'they', 'over',
                     'into', 'down', 'only', 'think', 'must', 'than', 'them', 'where', 'here', 'come', 'might',
-                    'much', 'came', 'last', 'back', 'other', 'such', 'tell', 'these', 'well', 'their',
+                    'much', 'came', 'last', 'back', 'other', 'such', 'tell', 'these', 'well', 'their', 'sir', 'am',
+                    'how', 'say', 'two'
                     ]
 
     for word in book.split(" "):
@@ -38,8 +39,12 @@ def histogram():
     sorted_hist = sorted(book_histogram.items(), key=operator.itemgetter(1))
     for idx, item in enumerate(sorted_hist[:-21:-1]):
         word, count = item
-        symbol_graph_value = round(count % 4)
-        print(idx + 1, word.title(), count)
+        symbol_count = count // 3
+        if idx >= 9:
+            pad_length = 25
+        else:
+            pad_length = 24
+        print(idx + 1, word.title(), (" " * (len(word) - pad_length)), ("▣" * symbol_count))
     #print(sorted_hist[:-20:-1])
 
 histogram()
